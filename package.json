@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server"
+    "clean": "rm -rf ./dist",
+    "build": "webpack",
+    "start": "npm run clean && npm run build && node server"
   },
   "repository": {
     "type": "git",
@@ -38,16 +40,17 @@
     "react-redux": "^6.0.0",
     "react-redux-toastr": "^7.4.5",
     "react-router-dom": "^4.3.1",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
+    "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -56,7 +59,9 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^1.0.0",
     "concurrently": "^4.1.0",
@@ -71,7 +76,14 @@
     "js-yaml": "^3.12.0",
     "node-sass": "^4.11.0",
     "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.3"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
