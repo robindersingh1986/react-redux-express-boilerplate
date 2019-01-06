@@ -10,29 +10,29 @@ const initialState = {
 export default function (state = initialState, action) {
   const {type, result} = action;
   switch (type) {
-    case ADD_TODO:
-      return {
-        ...state,
-        status:null,
-        items: result
-      };
-      case ADD_TODO_SUCCESS:
-      return {
-        ...state,
-        status:"call made successfully",
-        items: result
-      };
-      case ADD_TODO_FAILURE:
-      return {
-        ...state,
-        status:" call failed"
-      };
-    // case NEW_POST:
-    //   return {
-    //     ...state,
-    //     item: action.result
-    //   };
-    default:
-      return state;
+  case ADD_TODO:
+    return {
+      ...state,
+      status:null,
+      items: result
+    };
+  case ADD_TODO_SUCCESS:
+    return {
+      ...state,
+      status:'call made successfully',
+      items: result
+    };
+  case ADD_TODO_FAILURE:
+    return {
+      ...state,
+      status:' call failed'
+    };
+  // case NEW_POST:
+  //   return {
+  //     ...state,
+  //     item: action.result
+  //   };
+  default:
+    return state;
   }
 }
