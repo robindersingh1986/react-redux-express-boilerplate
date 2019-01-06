@@ -11,7 +11,8 @@ Webpack
 ES6
 
 git clone git@github.com:robindersingh1986/react-redux-express-boilerplate.git
-
+Stable branch is master
+Latest branch is develop, it takes a while to merge and update the master
 
 npm install express axios history lodash react prop-types react-bootstrap react-compose react-dom react-hot-loader react-loadable react-redux react-router-dom react-router-redux@next redux redux-saga uuid reselect react-redux-toastr redux-thunk --save
 
