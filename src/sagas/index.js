@@ -1,4 +1,4 @@
-export default function* helloSaga() {
+export function* helloSaga() {
   console.log('Hello Sagas!')
 }
 
