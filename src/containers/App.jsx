@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-//import './App.css';
 import { connect } from 'react-redux';
-//import Posts from '../components/posts';
+import AppComponent from '../components/AppComponent.jsx';
+
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
       items: 'no items'
     };
+    this.fnAddItem = this.fnAddItem.bind(this);
     console.log('props : ', props);
   }
   componentDidMount(){
@@ -16,13 +17,18 @@ class App extends Component {
   componentWillReceiveProps(nextProps){
     console.log('nxt', nextProps);
   }
+  fnAddItem(data) {
+    //data && this.props.todoAction(data);
+    console.log("fnAddItem called ", data);
+  }
   render() {
     const { items } = this.props;
     const itemBlock = Array.isArray(items) && items.map( item => <div key={ item.id }>{ item.title }</div> ) || 'Loading';
-    return ( <div>
-      <button onClick={ this.props.todoAction }>Add Item to list</button>
-      { itemBlock }
-    </div>
+    return ( 
+      <AppComponent 
+        items={ itemBlock }
+        addItem={ this.fnAddItem }
+      />
     );
   }
 }
@@ -35,7 +41,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    todoAction: () => dispatch({ type: 'ADD_TODO', result: 'Do something' })
+    todoAction: (data) => dispatch({ type: 'ADD_TODO', result: data })
   };
 };
 

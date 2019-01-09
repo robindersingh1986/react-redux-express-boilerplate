@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 // import { ConnectedRouter } from 'react-router-redux';
 // import createHistory from 'history/createBrowserHistory';
 import store from './storeSaga';
-import App from './containers/App';
+import App from './containers/App.jsx';
 
 /* const initialState = {};
 const history = createHistory({

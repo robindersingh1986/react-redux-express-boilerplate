@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './reducers';
 import { rootSaga } from './sagas';
+import registerServiceWorker from './registerServiceWorker';
 
 //create saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -41,4 +42,6 @@ sagaMiddleware.run( rootSaga );
 //   store.sagaTask = sagaMiddleware.run( rootSaga )
 // }
 // store.runSagaTask()
+
+registerServiceWorker();
 export default store;
