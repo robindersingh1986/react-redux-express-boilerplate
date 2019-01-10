@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AppComponent from '../components/AppComponent.jsx';
 
-class App extends Component {
+class Dashboard extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -20,12 +20,14 @@ class App extends Component {
   fnAddItem(data) {
     //data && this.props.todoAction(data);
     console.log("fnAddItem called ", data);
+    this.props.todoAction(data);
   }
   render() {
     const { items } = this.props;
     const itemBlock = Array.isArray(items) && items.map( item => <div key={ item.id }>{ item.title }</div> ) || 'Loading';
-    return ( 
-      <AppComponent 
+    console.log("itemBlock : ", itemBlock);
+    return (
+      <AppComponent
         items={ itemBlock }
         addItem={ this.fnAddItem }
       />
@@ -45,4 +47,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

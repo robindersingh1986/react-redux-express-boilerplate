@@ -1,19 +1,20 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-// import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
-
-import rootReducer from './reducers';
+import createRootReducer from './reducers';
 import { rootSaga } from './sagas';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
+import { createBrowserHistory } from 'history';
+export const history = createBrowserHistory();
 //create saga middleware
 const sagaMiddleware = createSagaMiddleware();
-
+const initialState = {};
 
 // export default function appStore(initialState= {}, history) {
 const middlewares = [
   sagaMiddleware,
-  // routerMiddleware(history)
+  routerMiddleware(history)
 ];
 
 const enhancers = [
@@ -32,8 +33,8 @@ const composeEnhancers =
     : compose;
 
 const store = createStore(
-  rootReducer,
-  //initialState,
+  createRootReducer(history),
+  initialState,
   composeEnhancers(...enhancers),
 );
 sagaMiddleware.run( rootSaga );
@@ -43,5 +44,5 @@ sagaMiddleware.run( rootSaga );
 // }
 // store.runSagaTask()
 
-registerServiceWorker();
+// registerServiceWorker();
 export default store;
