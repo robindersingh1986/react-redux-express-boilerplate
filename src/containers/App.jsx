@@ -20,6 +20,7 @@ class App extends Component {
   fnAddItem(data) {
     //data && this.props.todoAction(data);
     console.log("fnAddItem called ", data);
+    this.props.todoAction(data);
   }
   render() {
     const { items } = this.props;
