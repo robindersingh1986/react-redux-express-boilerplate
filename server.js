@@ -2,7 +2,7 @@ const express = require('express');
 const webpack = require('webpack');
 const path = require('path');
 const app = express();
-const HTTP_PORT = process.env.HTTP_PORT || 9000;
+const HTTP_PORT = process.env.HTTP_PORT || 9800;
 const HOST = process.env.HOST || null;
 
 const webpackConfig = require('./webpack.config.js');

@@ -1,16 +1,22 @@
 import React from 'react';
-import { ConnectedRouter } from 'react-router-redux';
-import { Route, Switch } from 'react-router';
-import Dashboard from './containers/Dashboard.jsx';
+import PropTypes from 'prop-types';
+import { ConnectedRouter } from 'connected-react-router/immutable';
+import routes from './routes';
 
-export const App = ({ history, context }) => {
+// import { Route, Switch } from 'react-router';
+// import Counter from './containers/Counter';
+// import Home from './components/Home';
+
+const App = ({ history }) => {
   return (
-    <ConnectedRouter history={ history } context={ context }>
-      <Switch>
-        {/* <Route exact path="/" render={ () => (<div>Match</div>) } /> */}
-        <Route exact path="/dashboard" render={ () => ( <Dashboard/> ) } />
-        <Route render={ () => (<div>Miss</div>) } />
-      </Switch>
+    <ConnectedRouter history={ history }>
+      { routes }
     </ConnectedRouter>
   );
 };
+
+App.propTypes = {
+  history: PropTypes.object,
+};
+
+export default App;

@@ -1,63 +1,30 @@
+import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
+//import Immutable from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import { Provider, ReactReduxContext } from 'react-redux';
+import App from './App';
+import configureStore, { history } from './configureStore';
 
-// import createHistory from 'history/createBrowserHistory';
-import store from './storeSaga';
-import { App } from './App.js';
-
-/* const initialState = {};
-const history = createHistory({
-  basename: '',
-  forceRefresh: false
-}); */
-
-//const store = makeStore(initialState, history);
-
-
-// ReactDOM.render(
-//   <AppContainer warnings={ false }>
-//     <Provider store={ store } context={ ReactReduxContext }>
-//       <ConnectedRouter history={history}> { /* place ConnectedRouter under Provider */ }
-//         <> { /* your usual react-router v4 routing */ }
-//           <Switch>
-//             <Route exact path="/" render={() => (  <App history={history} context={ReactReduxContext} /> )} />
-//             <Route render={() => (<div>Miss</div>)} />
-//           </Switch>
-//         </>
-//       </ConnectedRouter>
-//     </Provider>
-//   </AppContainer>,
-//   document.getElementById('main')
-// )
-
+const initialState = {}; //Immutable.Map();
+const store = configureStore(initialState);
 const render = () => {
   ReactDOM.render(
-    <AppContainer warnings={ false }>
-      <Provider store={ store } context={ ReactReduxContext }>
-        <App history={ history } context={ ReactReduxContext }/>
+    <AppContainer>
+      <Provider store={ store }>
+        <App history={ history } />
       </Provider>
     </AppContainer>,
     document.getElementById('main')
   );
 };
 
-/* 
-const render = () => {
-  ReactDOM.render(
-    <AppContainer warnings={ false }>
-      <Provider store={ store }>
-        <App />
-        </Provider>
-        </AppContainer>,
-        document.getElementById('main')
-      );
-    }; */
-if(module.hot){
-  //module.hot.accept('./containers/Dashboard', () => {
-  module.hot.accept('./reducers', () => {
+render();
+
+// Hot reloading
+if (module.hot) {
+  // Reload components
+  module.hot.accept('./App', () => {
     render();
   });
 }
-render();
