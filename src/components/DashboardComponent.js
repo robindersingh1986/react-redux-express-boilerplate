@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import '../styles/index.scss';
 
 export default class DashboardComponent extends Component {
@@ -10,7 +10,7 @@ export default class DashboardComponent extends Component {
     const { items, status } = this.props;
     return ( <div>
       <span className="span"> Ok :: { status } </span>
-      <button onClick={ this.handleClick }>Add Item to list</button>
+      <button onClick={ this.handleClick }>Add Item to list</button> <hr />
       { items }
     </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
-import DashboardComponent from '../components/DashboardComponent.jsx';
+//import { createSelector } from 'reselect';
+import DashboardComponent from '../components/DashboardComponent';
 
 class Dashboard extends Component {
   constructor(props){
@@ -10,51 +10,39 @@ class Dashboard extends Component {
       items: props.items || 'no items',
       status: props.status || '-',
     };
-    // this.fnAddItem = this.fnAddItem.bind(this);
-    // console.log('props : ', props);
   }
-/*   fnAddItem(data) {
-    //data && this.props.todoAction(data);
-    console.log('fnAddItem called ', data);
-    this.props.getData();
-  } */
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps....', nextProps);
     this.setState({
       items: nextProps.items,
+      status: nextProps.status,
     });
  }
 
-//  componentDidUpdate(prevProps) {
-//    console.log('componentDidUpdate....', prevProps);
-//  }
-
   render() {
-    console.log('this.props :::: ', this.props);
-    const { items } = this.state;
-    const itemBlock = Array.isArray(items) && items.map( item => <div key={ item.id }>{ item.title }</div> ); // || 'Loading';
-    console.log('itemBlock : ', itemBlock);
+    const { items, status } = this.state;
+    const itemBlock = Array.isArray(items) && items.map( item => <div key={ item.id }>{ item.title }</div> ) || 'Loading';
     return (
       <DashboardComponent
         items={ itemBlock }
         getData={ () => this.props.getData() }
-        status= { this.props.status }
+        status= { status }
       />
     );
   }
 }
 
 const mapStateToProps = state => {
+  const { Dashboard } = state;
   return {
-    items: state.items,
-    status: state.status,
+    items: Dashboard.items,
+    status: Dashboard.status,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getData: (data) => dispatch({ type: 'GET_DATA', result: data })
+    getData: () => dispatch({ type: 'GET_DATA' })
   };
 };
 

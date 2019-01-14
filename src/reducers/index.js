@@ -6,5 +6,5 @@ import counterReducer from './counter';
 export default (history) => combineReducers({
   router: connectRouter(history),
   count: counterReducer,
-  dashboard,
+  Dashboard: dashboard,
 });
