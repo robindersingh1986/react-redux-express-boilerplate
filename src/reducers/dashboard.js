@@ -10,11 +10,11 @@ export default function (state = initialState, action) {
   const {type, result, error} = action;
   switch (type) {
   case GET_DATA:
-    return  Object.assign({}, ...state);
+    return state;
   case GET_DATA_SUCCESS:
-    return  Object.assign({}, ...state, { status:'get call made successfully', items: result });
+    return  { ...state, status:200, items: result };
   case GET_DATA_FAILURE:
-  return  Object.assign({}, ...state, { status:'get call failed', error });
+  return { ...state, status: 500, error };
   default:
     return state;
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as action from '../actions';
 //import { createSelector } from 'reselect';
 import DashboardComponent from '../components/DashboardComponent';
 
@@ -8,7 +9,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       items: props.items || 'no items',
-      status: props.status || '-',
+      status: props.status || null,
     };
   }
 
@@ -42,7 +43,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getData: () => dispatch({ type: 'GET_DATA' })
+    getData: () => dispatch({ type: action.GET_DATA })
   };
 };
 
