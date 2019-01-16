@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/index.scss';
-import Text from '../commonComponents/input';
 
 export default class DashboardComponent extends Component {
   handleClick = () => {
@@ -11,8 +10,7 @@ export default class DashboardComponent extends Component {
     const { items, status } = this.props;
     return (
       <div>
-        <span className="span"> Ok :: {status} </span>
-        <Text />
+        <span className="span">{status} </span>
         <button onClick={this.handleClick}>Get Data</button> <hr />
         {items}
       </div>
