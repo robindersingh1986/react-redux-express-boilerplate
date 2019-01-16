@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/index.scss';
 
-export default class DashboardComponent extends Component {
+class DashboardComponent extends Component {
   handleClick = () => {
     this.props.getData();
   };
@@ -28,3 +28,5 @@ DashboardComponent.propTypes = {
   items: PropTypes.any,
   status: PropTypes.number
 };
+
+export default DashboardComponent;

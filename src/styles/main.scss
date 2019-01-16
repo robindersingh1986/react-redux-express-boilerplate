@@ -2,3 +2,9 @@ span {
     background-color: $black;
     color: $white;
   }
+
+.noMatch {
+  text-align: center;
+  background-color: $pink;
+  min-width:200px;
+}
