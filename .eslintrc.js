@@ -28,7 +28,7 @@ module.exports = {
   "rules": {
       // "indent": ["warning", 2],
       "no-console": 1,
-      "linebreak-style": [ "error", "windows" ],
+      "linebreak-style": [ "error", "unix" ],
       "quotes": [ "error", "single" ],
       "semi": [ "error", "always"],
       "react/jsx-boolean-value": 0,

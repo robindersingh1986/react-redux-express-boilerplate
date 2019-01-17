@@ -11,7 +11,7 @@ class DashboardComponent extends Component {
     return (
       <div>
         <span className="span">{status} </span>
-        <button onClick={this.handleClick}>Get Data</button> <hr />
+        <button onClick={ this.handleClick }>Get Data</button> <hr />
         {items}
       </div>
     );
