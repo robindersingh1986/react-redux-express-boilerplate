@@ -7,7 +7,7 @@ class EnsureLoggedIn extends Component {
   constructor(props){
     super(props);
     this.state = {
-      loggedIn: this.props.isLoggedIn || false,
+      loggedIn: localStorage.getItem('authToken') || false,
     };
   }
   componentDidMount() {
@@ -23,7 +23,7 @@ class EnsureLoggedIn extends Component {
   }
 
   render() {
-    if ( this.props.isLoggedIn ) {
+    if ( this.state.loggedIn ) {
       return this.props.children;
     } else {
       return <Redirect to='/login' />;

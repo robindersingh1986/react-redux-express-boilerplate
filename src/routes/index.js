@@ -28,8 +28,6 @@ const routes = (
         <Route path="/counter" component={ Counter } />
       </Route>
 
-      <Route component={ NoMatch } />
-
     </Switch>
   </div>
 );
